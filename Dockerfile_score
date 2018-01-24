@@ -1,0 +1,20 @@
+#FROM albanag/docker-spark
+FROM spark
+# add user
+RUN useradd -m pong
+
+# copy files
+COPY . /app
+WORKDIR /app
+
+# change permissions
+RUN chown -R pong:pong /app
+RUN chmod 755 /app
+
+# switch user
+USER pong
+
+WORKDIR /app
+
+# Run 
+CMD ["python3", "ml/score_model.py"]
