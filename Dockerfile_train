@@ -1,5 +1,4 @@
-#FROM albanag/docker-spark
-FROM spark
+FROM albanag/docker-spark
 
 # add user
 RUN useradd -m pong
